@@ -1,5 +1,8 @@
-#Alien_Invasion  
-  
+# Alien_Invasion  
+
+## This is what the game looks like currently:  
+![v0.1_screenshot](documentation/v0.1_screenshot.png)
+
 I installed pygame  
 `python -m pip install pygame`  
 I did need to create a venv in VSCode because I have multiple versions of python or something I don't understand.
