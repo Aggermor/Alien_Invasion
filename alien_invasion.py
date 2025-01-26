@@ -1,9 +1,16 @@
 # Python Crash Course (Third Edition) - Part II: Project 1
 # Alien Invasion Game 
 
+import os       # os module provides a way of using operating system dependent functionality
 import sys      # sys module allows us to exit the game when the player quits
 import pygame   # pygame module contains the functionality needed to make a game
 from settings import Settings 
+from ship import Ship
+
+
+# Set the working directory to the directory of the script
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
@@ -19,8 +26,8 @@ class AlienInvasion:
             (self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
-        # Set the background color.
-        self.bg_color = (230, 230, 230) # light grey RGB color value (0 through 255)
+        # Create an instance of the Ship class
+        self.ship = Ship(self)
 
     def run_game(self):
         """Start the main loop for the game."""
@@ -32,6 +39,7 @@ class AlienInvasion:
 
             # Redraw the screen during each pass through the loop.
             self.screen.fill(self.settings.bg_color)
+            self.ship.blitme()  # Draw the ship on the screen
             
             # Make the most recently drawn screen visible.
             pygame.display.flip()
